@@ -1,0 +1,55 @@
+﻿@page
+@model BurgerShop.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Burger</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Burger.UniqueBurgerId" />
+            <div class="form-group">
+                <label asp-for="Burger.Name" class="control-label"></label>
+                <input asp-for="Burger.Name" class="form-control" />
+                <span asp-validation-for="Burger.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Burger.Description" class="control-label"></label>
+                <input asp-for="Burger.Description" class="form-control" />
+                <span asp-validation-for="Burger.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Burger.Price" class="control-label"></label>
+                <input asp-for="Burger.Price" class="form-control" />
+                <span asp-validation-for="Burger.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Burger.Vegetarian" /> @Html.DisplayNameFor(model => model.Burger.Vegetarian)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Burger.Vegan" /> @Html.DisplayNameFor(model => model.Burger.Vegan)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

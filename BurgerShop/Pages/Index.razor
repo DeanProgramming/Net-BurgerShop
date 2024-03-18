@@ -1,0 +1,28 @@
+﻿@page "/"
+@using BurgerShop.Model;
+@using BurgerShop.Data
+@inject BurgerService BurgerSvc
+ 
+  
+
+<h1>Burger Madness</h1>
+
+@code {
+    List<BurgerSpecial> specials = new();
+
+    //Burger[] todaysBurger;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load burger specials
+        specials.AddRange(new List<BurgerSpecial>
+        {
+            new BurgerSpecial { Name = "The Baconatorizor", BasePrice =  11.99M, Description = "It has EVERY kind of bacon", ImageUrl="img/burgers/ClassicBurger.jpg"}       
+        });
+
+        // Load today's burgers
+        Burger[]  todaysBurger = await BurgerSvc.GetBurgersAsync();
+
+        int i = 0;
+    }    
+}
