@@ -1,5 +1,4 @@
 using BurgerShop.Data;
-using BurgerShop.Model;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
